@@ -1,0 +1,110 @@
+{
+    "1000": {
+        "message_Zh_CN": "请求成功",
+        "message_En_US": "OK"
+    },
+    "1001": {
+        "message_Zh_CN": "系统内部错误",
+        "message_En_US": "Internal server error"
+    },
+    "1002": {
+        "message_Zh_CN": "资源为空",
+        "message_En_US": "No content"
+    },
+    "1003": {
+        "message_Zh_CN": "无效的域名",
+        "message_En_US": "Invalid domain"
+    },
+    "1004": {
+        "message_Zh_CN": "无效的编号",
+        "message_En_US": "Invalid ID"
+    },
+    "1005": {
+        "message_Zh_CN": "无效的应用类型，只支持设置https或者http应用",
+        "message_En_US": "Invalid holer type, only support http or https"
+    },
+    "1006": {
+        "message_Zh_CN": "无效的用户名或密码",
+        "message_En_US": "Invalid user name or password"
+    },
+    "1007": {
+        "message_Zh_CN": "无效的通证",
+        "message_En_US": "Invalid token"
+    },
+    "1008": {
+        "message_Zh_CN": "未找到资源",
+        "message_En_US": "Not found"
+    },
+    "1009": {
+        "message_Zh_CN": "秘钥只能含有字母、数字、下划线、中划线，支持的长度范围16-64个字符",
+        "message_En_US": "Invalid access key"
+    },
+    "1010": {
+        "message_Zh_CN": "公网端口无效，有效的端口范围 1-65535",
+        "message_En_US": "Invalid public port number"
+    },
+    "1011": {
+        "message_Zh_CN": "内网地址无效，正确的地址格式：HOST:PORT",
+        "message_En_US": "Invalid local server address"
+    },
+    "1012": {
+        "message_Zh_CN": "允许输入的有效期范围 0-1000天",
+        "message_En_US": "Valid day range is 0-1000 days"
+    },
+    "1013": {
+        "message_Zh_CN": "该访问秘钥已占用",
+        "message_En_US": "The access key is already taken"
+    },
+    "1014": {
+        "message_Zh_CN": "该公网端口已占用",
+        "message_En_US": "The public port is already taken"
+    },
+    "1015": {
+        "message_Zh_CN": "该域名已占用",
+        "message_En_US": "The domain is already taken"
+    },
+    "1016": {
+        "message_Zh_CN": "私网端口无效，有效的端口范围 1-65535",
+        "message_En_US": "Invalid private port number"
+    },
+    "1017": {
+        "message_Zh_CN": "不允许对该资源进行任何操作",
+        "message_En_US": "Any action is not allowed on the resource"
+    },
+    "1018": {
+        "message_Zh_CN": "无效的电子邮箱",
+        "message_En_US": "Invalid email"
+    },
+    "1019": {
+        "message_Zh_CN": "端口映射数量已达到上限，需要支持更多的端口映射，请访问holer官网 www.wdom.net 申请license",
+        "message_En_US": "The number of port mappings has reached the upper limit, if require more port mappings, please apply for license on holer website wdom.net"
+    },
+    "1020": {
+        "message_Zh_CN": "无法认证license的有效性，通信异常",
+        "message_En_US": "Unable to verify the license, communication exception"
+    },
+    "1021": {
+        "message_Zh_CN": "该license已占用",
+        "message_En_US": "The license is already taken"
+    },
+    "1022": {
+        "message_Zh_CN": "License只能含有字母、数字、下划线、中划线，支持的长度范围16-64个字符",
+        "message_En_US": "Invalid license key"
+    },
+    "1023": {
+        "message_Zh_CN": "License支持的端口数量最少是1个",
+        "message_En_US": "The license supports at least one port"
+    },
+    "1024": {
+        "message_Zh_CN": "License有效期以天为单位，最少是1天",
+        "message_En_US": "The license is valid for at least one day"
+    },
+    "1025": {
+        "message_Zh_CN": "默认只支持1个端口映射，需要支持更多的端口映射，请访问holer官网www.wdom.net申请license",
+        "message_En_US": "Only support one port mapping, if require more port mappings, please apply for license on holer website www.wdom.net"
+    },
+    "1026": {
+        "message_Zh_CN": "当前使用的license已过期，请访问holer官网www.wdom.net续费",
+        "message_En_US": "The current license has expired, please visit the holer website www.wdom.net for renewal"
+    }
+}

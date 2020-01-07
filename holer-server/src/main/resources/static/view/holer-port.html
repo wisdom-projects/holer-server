@@ -1,0 +1,349 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Holer | 端口映射</title>
+    <!-- Tell the browser to be responsive to screen width --> 
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="../img/logo.ico" type="image/x-icon" rel="icon" />
+    <!-- Bootstrap 3.3.7 --> 
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <!-- Font Awesome --> 
+    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css" />
+    <!-- Ionicons --> 
+    <link rel="stylesheet" href="../lib/ionicons/css/ionicons.min.css" />
+    <!-- DataTables --> 
+    <link rel="stylesheet" href="../lib/datatables/css/datatables.bootstrap.min.css" />
+    <!-- Theme style --> 
+    <link rel="stylesheet" href="../lib/adminlte/css/adminlte.min.css" />
+    <!-- AdminLTE Skins --> 
+    <link rel="stylesheet" href="../lib/adminlte/css/skin-blue.min.css" />
+    <link rel="stylesheet" href="../css/switch.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --> 
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <header class="main-header">
+        <!-- Logo --> 
+        <a href="holer-report.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels --> 
+          <span class="logo-mini"> 
+            <img src="../img/logo/wisdom-32.png" class="img-circle" /> 
+          </span> 
+          <!-- logo for regular state and mobile devices --> 
+          <span class="logo-lg">
+            <div class="pull-left"> 
+              <img src="../img/logo/wisdom-32.png" class="img-circle" /> 
+            </div>
+            <b>H</b>OLER 
+          </span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less --> 
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button--> 
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"> 
+            <span class="sr-only">Toggle navigation</span> 
+          </a> 
+          <!-- Navbar Right Menu --> 
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account: style can be found in dropdown.less --> 
+              <li class="dropdown"> 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="logout()">退出</a> 
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar --> 
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less --> 
+        <section class="sidebar">
+          <!-- sidebar menu: : style can be found in sidebar.less --> 
+          <ul class="sidebar-menu" data-widget="tree">
+            <li class="header"></li>
+            <li>
+              <a href="holer-report.html">
+                <i class="fa fa-pie-chart"></i>
+                <span>数据统计</span>
+              </a>
+            </li>
+            <li>
+              <a href="holer-client.html">
+                <i class="fa fa-users"></i>
+                <span>用户列表</span>
+              </a>
+            </li>
+            <li class="active">
+              <a href="holer-port.html">
+                <i class="fa fa-th"></i>
+                <span>端口映射</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <!-- /.sidebar --> 
+      </aside>
+      <!-- Content Wrapper. Contains page content --> 
+      <div class="content-wrapper">
+        <!-- Main content --> 
+        <section class="content">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="box">
+                <div class="box-header">
+                  <h3 class="box-title">端口映射</h3>
+                  <div class="btn-group pull-right"> 
+                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-port-detail" onclick="initDetail()">
+                      <i class="fa fa-list-ul"></i> 详情
+                    </a>
+                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-port-add" onclick="initAdd()"> 
+                      <i class="fa fa-plus-square-o"></i> 添加 
+                    </a>
+                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-port-edit" onclick="initUpdate()"> 
+                      <i class="fa fa-edit"></i> 编辑 
+                    </a>  
+                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-port-delete" onclick="initDelete()"> 
+                      <i class="fa fa-minus-square-o"></i> 删除 
+                    </a> 
+                  </div>
+                </div>
+                <!-- /.box-header --> 
+                <div class="box-body table-responsive">
+                  <div class="form-group">
+                    <div class="form-group pull-left">
+                      <select id="client-list" class="form-control select2" style="width: 100%;" onchange="changeClient()"></select>
+                    </div>
+                    <div class="input-group input-group-sm pull-right" style="width: 200px;">
+                      <input id = "search-user" type="text" name="table_search" class="form-control pull-right" placeholder="输入访问秘钥" /> 
+                      <div class="input-group-btn"> 
+                        <button id="btn-search" type="button" class="btn btn-default" onclick="getClientByKey()">
+                          <i class="fa fa-search"></i>
+                        </button> 
+                      </div>
+                    </div>
+                  </div>
+                  <table id="port-table" class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th style="width: 4px"></th>
+                        <th>公网地址</th>
+                        <th>内网地址</th>
+                        <th>应用类型</th>
+                        <th>有效期(天)</th>
+                        <th>端口状态</th>
+                        <th>操作</th>
+                      </tr>
+                    </thead>
+                    <tbody id="port-list"></tbody>
+                  </table>
+                  <p id="msg-port-list"></p>
+                </div>
+                <!-- /.box-body --> 
+              </div>
+              <!-- /.box --> 
+            </div>
+            <!-- /.col --> 
+          </div>
+          <!-- /.row --> 
+          <!-- /.modal --> 
+          <div class="modal fade" id="modal-port-detail">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span> 
+                  </button> 
+                  <h4 class="modal-title">端口详情</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group has-feedback">
+                    <textarea id="port-detail" class="form-control"></textarea>
+                  </div>
+                  <span id="msg-port-detail"></span>
+                </div>
+                <div class="modal-footer"> 
+                  <button id="btn-detail-port" type="button" class="btn btn-primary pull-left" onclick="copyDetail()">复制</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+                </div>
+              </div>
+              <!-- /.modal-content --> 
+            </div>
+            <!-- /.modal-dialog --> 
+          </div>
+          <div class="modal fade" id="modal-port-add">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span> 
+                  </button> 
+                  <h4 class="modal-title">添加映射</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group has-feedback">
+                    <input id="new-client" type="text" readonly="readonly" class="form-control" placeholder="用户名称">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="new-port" type="text" class="form-control" placeholder="公网端口，必填">
+                    <span class="glyphicon glyphicon-th-large form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="new-domain" type="text" class="form-control" placeholder="域名，可选">
+                    <span class="glyphicon glyphicon-cloud form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="new-local-server" type="text" class="form-control" placeholder="内网地址，必填，格式：IP或主机名:端口">
+                    <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <select id="new-type" class="form-control select2" placeholder="应用类型" style="width: 100%;">
+                      <option value='HTTP'>HTTP</option>
+                      <option value='HTTPS'>HTTPS</option>
+                      <option value='SSH'>SSH</option>
+                      <option value='TELNET'>TELNET</option>
+                      <option value='DATABASE'>DATABASE</option>
+                      <option value='RDESKTOP'>RDESKTOP</option>
+                      <option value='TCP'>TCP</option>
+                    </select>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="new-valid-day" type="text" class="form-control" placeholder="有效期(天)，可选，默认是10天">
+                    <span class="glyphicon glyphicon-time form-control-feedback"></span>
+                  </div>
+                  <span id="msg-port-new"></span>
+                </div>
+                <div class="modal-footer"> 
+                  <button id="btn-add-port" type="button" class="btn btn-primary pull-left" onclick="addPort()">保存</button> 
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+                </div>
+              </div>
+              <!-- /.modal-content --> 
+            </div>
+            <!-- /.modal-dialog --> 
+          </div>
+          <!-- /.modal --> 
+          <div class="modal fade" id="modal-port-edit">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span> 
+                  </button> 
+                  <h4 class="modal-title">编辑映射</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group has-feedback">
+                    <input id="update-client" type="text" readonly="readonly" class="form-control" placeholder="用户名称">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="update-port" type="text" class="form-control" placeholder="公网端口">
+                    <span class="glyphicon glyphicon-th-large form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="update-domain" type="text" class="form-control" placeholder="域名">
+                    <span class="glyphicon glyphicon-cloud form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="update-local-server" type="text" class="form-control" placeholder="内网地址">
+                    <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <select id="update-type" class="form-control select2" placeholder="应用类型" style="width: 100%;">
+                      <option value='HTTP'>HTTP</option>
+                      <option value='HTTPS'>HTTPS</option>
+                      <option value='SSH'>SSH</option>
+                      <option value='TELNET'>TELNET</option>
+                      <option value='DATABASE'>DATABASE</option>
+                      <option value='RDESKTOP'>RDESKTOP</option>
+                      <option value='TCP'>TCP</option>
+                    </select>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <input id="update-valid-day" type="text" class="form-control" placeholder="有效期(天)">
+                    <span class="glyphicon glyphicon-time form-control-feedback"></span>
+                  </div>
+                  <span id="msg-port-update"></span>
+                </div>
+                <div class="modal-footer"> 
+                  <button id="btn-update-port" type="button" class="btn btn-primary pull-left" onclick="updatePort()">保存</button> 
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+                </div>
+              </div>
+              <!-- /.modal-content --> 
+            </div>
+            <!-- /.modal-dialog --> 
+          </div>
+          <!-- /.modal --> 
+          <div class="modal fade" id="modal-port-delete">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                    <span aria-hidden="true">&times;</span> 
+                  </button> 
+                  <h4 class="modal-title">删除映射</h4>
+                </div>
+                <div class="modal-body">
+                  <p id="msg-port-delete">确定要删除该端口映射？</p>
+                </div>
+                <div class="modal-footer"> 
+                  <button id="btn-delete-port" type="button" class="btn btn-primary pull-left" onclick="deletePort()">确定</button> 
+                  <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button> 
+                </div>
+              </div>
+              <!-- /.modal-content --> 
+            </div>
+            <!-- /.modal-dialog --> 
+          </div>
+          <!-- /.modal --> 
+        </section>
+        <!-- /.content --> 
+      </div>
+      <!-- /.content-wrapper --> 
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs"> <b>Version</b> 1.1.0 </div>
+        <strong>Copyright &copy; 2019 <a href="http://wdom.net">Wisdom Net</a>.</strong> All Rights Reserved. 
+      </footer>
+    </div>
+    <!-- ./wrapper --> <!-- jQuery 3 --> 
+    <script src="../lib/jquery/jquery.min.js"></script> 
+    <script src="../lib/jquery/jquery.cookie.js"></script>
+    <!-- Bootstrap 3.3.7 --> 
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script> 
+    <!-- DataTables --> 
+    <script src="../lib/datatables/js/jquery.datatables.min.js"></script> 
+    <script src="../lib/datatables/js/datatables.bootstrap.min.js"></script> 
+    <!-- SlimScroll --> 
+    <script src="../lib/jquery-slimscroll/jquery.slimscroll.min.js"></script> 
+    <!-- FastClick --> 
+    <script src="../lib/fastclick/fastclick.js"></script> 
+    <!-- AdminLTE App --> 
+    <script src="../lib/adminlte/js/adminlte.min.js"></script> 
+    <!-- logout --> 
+    <script src="../js/logout.js"></script>
+    <!-- holer-port -->  
+    <script src="../js/holer-port.js"></script>
+    <!-- page script --> 
+    <script>
+    $(function () {
+        $('#port-table').DataTable({
+            'paging'    : false,
+            'lengthChange': true,
+            'searching'   : false,
+            'ordering'  : false,
+            'info'    : false,
+            'autoWidth'   : true
+        })
+    })
+    </script> 
+  </body>
+</html>

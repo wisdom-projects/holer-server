@@ -1,0 +1,11 @@
+[Unit]
+Description=Holer
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=@HOLER_HOME@/bin/holer start
+ExecStop=@HOLER_HOME@/bin/holer stop
+
+[Install]
+WantedBy=multi-user.target

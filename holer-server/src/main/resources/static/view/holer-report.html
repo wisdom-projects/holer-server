@@ -1,0 +1,237 @@
+<!DOCTYPE html> 
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Holer | 数据统计</title>
+    <!-- Tell the browser to be responsive to screen width --> 
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link href="../img/logo.ico" type="image/x-icon" rel="icon" />
+    <!-- Bootstrap 3.3.7 --> 
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css" />
+    <!-- Font Awesome --> 
+    <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.min.css" />
+    <!-- Ionicons --> 
+    <link rel="stylesheet" href="../lib/ionicons/css/ionicons.min.css" />
+    <!-- Morris charts --> 
+    <link rel="stylesheet" href="../lib/morris/morris.css" />
+    <!-- Theme style --> 
+    <link rel="stylesheet" href="../lib/adminlte/css/adminlte.min.css" />
+    <!-- AdminLTE Skins --> 
+    <link rel="stylesheet" href="../lib/adminlte/css/skin-blue.min.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries --> 
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// --> 
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]--> 
+  </head>
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <header class="main-header">
+        <!-- Logo --> 
+        <a href="holer-report.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels --> 
+          <span class="logo-mini"> 
+            <img src="../img/logo/wisdom-32.png" class="img-circle" /> 
+          </span> 
+          <!-- logo for regular state and mobile devices --> 
+          <span class="logo-lg">
+            <div class="pull-left"> 
+              <img src="../img/logo/wisdom-32.png" class="img-circle" /> 
+            </div>
+            <b>H</b>OLER 
+          </span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less --> 
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button--> 
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"> 
+            <span class="sr-only">Toggle navigation</span> 
+          </a> 
+          <!-- Navbar Right Menu --> 
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- User Account: style can be found in dropdown.less --> 
+              <li class="dropdown"> 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="logout()">退出</a> 
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar --> 
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less --> 
+        <section class="sidebar">
+          <!-- sidebar menu: : style can be found in sidebar.less --> 
+          <ul class="sidebar-menu" data-widget="tree">
+            <li class="header"></li>
+            <li class="active">
+              <a href="holer-report.html">
+                <i class="fa fa-pie-chart"></i>
+                <span>数据统计</span>
+              </a>
+            </li>
+            <li>
+              <a href="holer-client.html">
+                <i class="fa fa-users"></i>
+                <span>用户列表</span>
+              </a>
+            </li>
+            <li>
+              <a href="holer-port.html">
+                <i class="fa fa-th"></i>
+                <span>端口映射</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <!-- /.sidebar --> 
+      </aside>
+      <!-- Content Wrapper. Contains page content --> 
+      <div class="content-wrapper">
+        <!-- Main content --> 
+        <section class="content">
+          <!-- Main row --> 
+          <div class="row">
+            <div class="col-md-4">
+              <!-- User status --> 
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">用户状态</h3>
+                  <div class="box-tools pull-right"> 
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fa fa-minus"></i> 
+                    </button> 
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                      <i class="fa fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="user-stat-chart" style="height: 220px; position: relative;"></div>
+                </div>
+                <!-- /.box-body --> 
+              </div>
+              <!-- /.box --> 
+            </div>
+            <!-- Port status --> 
+            <div class="col-md-4">
+              <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">端口状态</h3>
+                  <div class="box-tools pull-right"> 
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"> 
+                      <i class="fa fa-minus"></i> 
+                    </button> 
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"> 
+                      <i class="fa fa-times"></i> 
+                    </button> 
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="port-stat-chart" style="height: 220px; position: relative;"></div>
+                </div>
+                <!-- /.box-body --> 
+              </div>
+              <!-- /.box --> 
+            </div>
+            <!-- Holer type --> 
+            <div class="col-md-4">
+              <div class="box box-danger">
+                <div class="box-header with-border">
+                  <h3 class="box-title">应用分类</h3>
+                  <div class="box-tools pull-right"> 
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"> 
+                      <i class="fa fa-minus"></i> 
+                    </button> 
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"> 
+                      <i class="fa fa-times"></i> 
+                    </button> 
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="app-type-chart" style="height: 220px; position: relative;"></div>
+                </div>
+                <!-- /.box-body --> 
+              </div>
+              <!-- /.box --> 
+            </div>
+            <!-- Current connections chart --> 
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">当前连接</h3>
+                  <div class="box-tools pull-right"> 
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fa fa-minus"></i> 
+                    </button> 
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                      <i class="fa fa-times"></i>
+                    </button> 
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="connection-chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body --> 
+              </div>
+              <!-- /.box --> 
+            </div>
+            <!-- Traffic statistics chart --> 
+            <div class="col-md-6">
+              <div class="box box-success">
+                <div class="box-header with-border">
+                  <h3 class="box-title">流量统计</h3>
+                  <div class="box-tools pull-right"> 
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                      <i class="fa fa-minus"></i> 
+                    </button> 
+                    <button type="button" class="btn btn-box-tool" data-widget="remove">
+                      <i class="fa fa-times"></i>
+                    </button> 
+                  </div>
+                </div>
+                <div class="box-body chart-responsive">
+                  <div class="chart" id="traffic-stat-chart" style="height: 300px;"></div>
+                </div>
+                <!-- /.box-body --> 
+              </div>
+              <!-- /.box --> 
+            </div>
+            <div class="col-md-12">
+              <p id="msg-report"></p>
+            </div>
+          </div>
+          <!-- /.row --> 
+        </section>
+        <!-- /.content --> 
+      </div>
+      <!-- /.content-wrapper --> 
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs"> <b>Version</b> 1.1.0 </div>
+        <strong>Copyright &copy; 2019 <a href="http://wdom.net">Wisdom Net</a>.</strong> All Rights Reserved. 
+      </footer>
+    </div>
+    <!-- ./wrapper --> 
+    <!-- jQuery 3 --> 
+    <script src="../lib/jquery/jquery.min.js"></script> 
+    <script src="../lib/jquery/jquery.cookie.js"></script>
+    <!-- Bootstrap 3.3.7 --> 
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script> 
+    <!-- Morris.js charts --> 
+    <script src="../lib/raphael/raphael.min.js"></script> 
+    <script src="../lib/morris/morris.min.js"></script> 
+    <!-- FastClick --> 
+    <script src="../lib/fastclick/fastclick.js"></script> 
+    <!-- AdminLTE App --> 
+    <script src="../lib/adminlte/js/adminlte.min.js"></script> 
+    <!-- logout --> 
+    <script src="../js/logout.js"></script>
+    <!-- holer-report -->
+    <script src="../js/holer-report.js"></script>
+    <!-- page script --> 
+    <script></script> 
+  </body>
+</html>
