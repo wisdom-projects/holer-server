@@ -1,2 +1,2 @@
-# holer-server
+# Holer Server
 Holer server
