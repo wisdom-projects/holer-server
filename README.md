@@ -1,9 +1,10 @@
 # ![Holer Server](http://blog.wdom.net/upload/2019/11/v3sonj7kuogp1orspp1ek7t4jt.png)
 
 使用**holer服务端软件**搭建holer服务，通过holer客户端软件经**自己服务器**实现公网访问。<br/>
-用户可以下载 [**holer-server.zip**](https://github.com/wisdom-projects/holer-server/releases) 搭建自己的holer服务。<br/>
-如果下载holer软件遇到问题，更多的下载地址详见[4.2节](#42-holer下载)。<br/>
 
+用户可以下载 [**holer-server.zip**](https://github.com/wisdom-projects/holer-server/releases) 搭建自己的holer服务。<br/>
+
+如果下载holer软件遇到问题，更多的下载地址[**详见文档**](https://github.com/wisdom-projects/holer/releases)
 ![Holer Server](http://blog.wdom.net/upload/2019/04/pnlmngj08sh4eqv8fdb97oto0p.png)
 
 ## 1. 搭建holer服务端准备工作
@@ -134,34 +135,25 @@ startup.bat
 ## 4.1 Holer使用示例
 获得更多的holer使用示例，请参考[**官方文档**](http://blog.wdom.net)。
 
-## 4.2 Holer下载
-### 4.2.1 Holer客户端软件
-[下载地址一](https://github.com/wisdom-projects/holer-client/releases)<br/>
-[下载地址二](https://pan.baidu.com/s/1APDAaaaQxTa71IR2hDjIaA#list/path=%2Fsharelink2808252679-1014620033513253%2Fholer%2Fholer-client&parentPath=%2Fsharelink2808252679-1014620033513253)<br/>
-
-### 4.2.2 Holer服务端软件
-[下载地址一](https://github.com/wisdom-projects/holer-server/releases)<br/>
-[下载地址二](https://pan.baidu.com/s/1APDAaaaQxTa71IR2hDjIaA#list/path=%2Fsharelink2808252679-1014620033513253%2Fholer%2Fholer-server&parentPath=%2Fsharelink2808252679-1014620033513253)<br/>
-
-## 4.3 问题帮助
+## 4.2 问题帮助
 使用中遇到问题可以查看holer日志信息来排查问题的具体原因。
 
-### 4.3.1 Holer客户端日志
-#### 4.3.1.1 Java版本的holer客户端
+### 4.2.1 Holer客户端日志
+#### 4.2.1.1 Java版本的holer客户端
 查看日志文件：
 `holer-client/logs/holer-client.log`
 
-#### 4.3.1.2 Go版本的holer客户端
+#### 4.2.1.2 Go版本的holer客户端
 **Linux系统** <br/>
 查看可执行程序所在目录下的日志文件`logs/holer-client.log`或者`nohup.out`文件。
 
 **Windows系统** <br/>
 查看可执行程序所在目录下的日志文件`logs/holer-client.log`
 
-### 4.3.2 Holer服务端日志
+### 4.2.2 Holer服务端日志
 查看日志文件：
 `holer-server/logs/holer-server.log`
 
-## 4.4 申请holer服务端软件license
+## 4.3 申请holer服务端软件license
 Holer服务端软件是开源免费的，如果需要支持多个端口映射，可以申请相应规格的license。<br/>
 Holer服务端软件license [**详见文档**](http://blog.wdom.net/article/23)
