@@ -4,7 +4,8 @@
 
 用户可以下载 [**holer-server.zip**](https://github.com/wisdom-projects/holer-server/releases) 搭建自己的holer服务。<br/>
 
-如果下载holer软件遇到问题，更多的下载地址[**详见文档**](https://github.com/wisdom-projects/holer/releases)
+如果下载holer软件遇到问题，更多的下载地址[**详见文档**](https://github.com/wisdom-projects/holer/releases)<br/>
+
 ![Holer Server](http://blog.wdom.net/upload/2019/04/pnlmngj08sh4eqv8fdb97oto0p.png)
 
 ## 1. 搭建holer服务端准备工作
