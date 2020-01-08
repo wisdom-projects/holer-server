@@ -4,7 +4,7 @@
 
 用户可以下载 [**holer-server.zip**](https://github.com/wisdom-projects/holer-server/releases) 搭建自己的holer服务。<br/>
 
-如果下载holer软件遇到问题，更多的下载地址[**详见文档**](https://github.com/wisdom-projects/holer/releases)。<br/>
+Holer软件下载地址[**详见文档**](https://github.com/wisdom-projects/holer/releases)。<br/>
 
 ![Holer Server](http://blog.wdom.net/upload/2019/04/pnlmngj08sh4eqv8fdb97oto0p.png)
 
@@ -157,4 +157,4 @@ startup.bat
 
 ## 4.3 申请holer服务端软件license
 Holer服务端软件是开源免费的，如果需要支持多个端口映射，可以申请相应规格的license。<br/>
-Holer服务端软件license [**详见文档**](http://blog.wdom.net/article/23)
+Holer服务端软件license [**详见文档**](http://blog.wdom.net/article/23)。
