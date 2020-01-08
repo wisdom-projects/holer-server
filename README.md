@@ -1,7 +1,7 @@
 # ![Holer Server](http://blog.wdom.net/upload/2019/11/v3sonj7kuogp1orspp1ek7t4jt.png)
 
 使用**holer服务端软件**搭建holer服务，通过holer客户端软件经**自己服务器**实现公网访问。<br/>
-用户也可以下载 [**holer-server.zip**](https://github.com/wisdom-projects/holer-server/releases) 搭建自己的holer服务。<br/>
+用户可以下载 [**holer-server.zip**](https://github.com/wisdom-projects/holer-server/releases) 搭建自己的holer服务。<br/>
 如果下载holer软件遇到问题，更多的下载地址详见[4.2节](#42-holer下载)。<br/>
 
 ![Holer Server](http://blog.wdom.net/upload/2019/04/pnlmngj08sh4eqv8fdb97oto0p.png)
