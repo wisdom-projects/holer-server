@@ -155,4 +155,4 @@ startup.bat
 
 ## 4.3 申请holer服务端软件license
 Holer服务端软件是开源免费的，如果需要支持多个端口映射，可以申请相应规格的license。<br/>
-Holer服务端软件license [**详见文档**](http://blog.wdom.net/article/23)。
+申请holer服务端软件license [**详见文档**](http://blog.wdom.net/article/23)。
