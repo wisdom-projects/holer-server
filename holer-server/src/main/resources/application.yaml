@@ -37,6 +37,8 @@ holer:
   domain:
     name: your-domain.com
   nginx:
+    #bin: /usr/sbin
+    #conf: /etc/nginx
     #home: /usr/local/nginx
     home: C:/nginx
   license:

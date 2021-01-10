@@ -164,7 +164,7 @@ function initDetail()
     clientDetail += "\n\n1. 使用说明";
     clientDetail += "\n\n  Holer有Java和Go两种版本，选择其中一种版本使用即可。";
     clientDetail += "\n\n  1.1 Java版本holer";
-    clientDetail += "\n\n  使用前先安装Java，下载软件包holer-client-v1.1.zip\n  修改配置文件holer-client/conf/holer.conf，添加配置项如下：\n  HOLER_ACCESS_KEY=" + client.accessKey + "\n  HOLER_SERVER_HOST=" + serverHost;
+    clientDetail += "\n\n  使用前先安装Java，下载软件包holer-client.zip\n  修改配置文件holer-client/conf/holer.conf，添加配置项如下：\n  HOLER_ACCESS_KEY=" + client.accessKey + "\n  HOLER_SERVER_HOST=" + serverHost;
     clientDetail += "\n\n  启动holer，打开终端进入目录holer-client/bin执行如下命令：\n  Windows系统: startup.bat\n  Linux系统: bash startup.sh";
     clientDetail += "\n\n  1.2 Go版本holer";
     clientDetail += "\n\n  在不同的系统中使用方法类似，以常用的Windows和Linux x86 64位系统为例；\n  下载软件包holer-windows.tar.gz和holer-linux-x86.tar.gz\n  打开终端进入可执行程序所在的目录，启动holer执行命令如下：";
@@ -174,7 +174,7 @@ function initDetail()
     clientDetail += "\n\n  访问前先确定Local Address对应的本地应用是否可以正常访问；\n  使用列表中的Internet Address访问映射后的应用；\n  如果是WEB应用还可以直接通过Domain Name访问。";
     clientDetail += "\n\n" + line;
     clientDetail += "\n\n2. 相关资料";
-    clientDetail += "\n\n  2.1 软件包地址\n  https://github.com/wisdom-projects/holer/tree/master/Binary";
+    clientDetail += "\n\n  2.1 软件地址\n  https://github.com/wisdom-projects/holer/tree/master/Binary";
     clientDetail += "\n\n  2.2 问题帮助\n  使用中遇到问题可以查看日志文件和终端打印的日志信息来排查问题的具体原因；\n  Java版本的日志文件路径：holer-client/logs\n  Go Linux版本查看可执行程序所在目录下的nohup.out文件";
     clientDetail += "\n\n  2.3 参考文档\n  http://blog.wdom.net/category/Holer";
     clientDetail += "\n\n" + line;
