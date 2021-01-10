@@ -70,7 +70,6 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>3.14.3</version>
         </dependency>
         <dependency>
             <groupId>org.holer</groupId>
@@ -148,7 +147,7 @@
                             <addClasspath>true</addClasspath>
                         </manifest>
                         <manifestEntries>
-                            <Class-Path>resources/</Class-Path>
+                            <Class-Path>resources/ lib/holer-1.2.jar</Class-Path>
                         </manifestEntries>
                     </archive>
                 </configuration>
